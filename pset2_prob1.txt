@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#script: grep "Gainesville" prob2_file.csv | awk -F',' '{print $13, $16}' | grep -c 1.00 >> pset2_prob1.txt
+
+
+#answer: 950
