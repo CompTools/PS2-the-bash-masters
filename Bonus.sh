@@ -1,4 +1,6 @@
 #!/bin/bash
+cp /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv ./
+
 echo -n "Please enter either airport-code or city-name or state-name (case-sensitive) -> "
 read name
 len="$(echo "$name" | wc -c)"
@@ -11,3 +13,5 @@ else
   echo "Invalid Input"
   fi
 fi
+
+rm flights.May2017-Apr2018.csv

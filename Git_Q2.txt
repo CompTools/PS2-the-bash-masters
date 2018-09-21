@@ -1,4 +1,1 @@
 GNV to:  Total flights  Total flights delayed(>15min)  Total flights delayed due to Weather
-   ATL		1476		310		13
-   CLT		476		118		2
-   MIA		205		36		0
