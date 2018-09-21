@@ -1,0 +1,69 @@
+#!/bin/bash
+
+#this first part will create the headings for the chart and create our chart file 
+
+echo "GNV to:,Total flights,Total flights delayed(>15min),Total flights delayed due to Weather" | column -s ',' -t > Q2_chart.txt
+
+
+#here we will actualy get the flight info using grep to search for it and then other commands, first putting it in "dummy file", then exporting to chart file
+
+
+#Here we will focus on flights going to ATL from GNV; our first row in the chart; we create a dummy file ATL.txt to store info; first line is destination
+echo "   ATL" > ATL.txt
+
+
+# using awk to print the 3rd column lines containing GNV, meaning flights leaving from GNV. then we use grep to count of those lines, which have ATL in them. these will be the total flights from GNV to ATL
+
+awk -F',' '$3~/GNV/' flights.May2017-Apr2018.csv | grep -c ATL >> ATL.txt
+#answer: 1476
+
+#printing column with flights delayed 15mins and total delays due to weather; we will export these values to our dummy ATL.txt file
+#using grep to count the positive "1.00" occuraces for the given column containing info we need 
+#column 13 corresponds to flights delayed 15 mins
+
+awk -F',' '$3~/GNV/' flights.May2017-Apr2018.csv | grep ATL | awk -F',' '{print $13, $16}' | grep -c 1.00 >> ATL.txt
+#answer: 262
+
+#getting flights delayed due to weather; we get some lines with blank text and others with 0.00 and others with the delayed time (?). We use grep to only look at lines beginning with something and count the lines not containing 0.00
+
+awk -F',' '$3~/GNV/' flights.May2017-Apr2018.csv | grep ATL | awk -F',' '{print $24}' | grep -v ^$ | grep -vc 0.00 >> ATL.txt
+#answer: 13 flights
+
+#taking our info from ATL.txt and putting it in each column of our chart file. Spacing isnt alligned; this can be fixed but no biggie
+cat ATL.txt | paste -sd "," | column -s ',' -t -o $'\t\t' >> Q2_table.txt 
+
+
+
+
+#now we do the same for flights to CLT; basically same code 
+echo "   CLT" > CLT.txt
+awk -F',' '$3~/GNV/' flights.May2017-Apr2018.csv | grep -c CLT >> CLT.txt
+#answer: 476
+awk -F',' '$3~/GNV/' flights.May2017-Apr2018.csv | grep CLT | awk -F',' '{print $13, $16}' | grep -c 1.00 >> CLT.txt
+#answer: 118
+awk -F',' '$3~/GNV/' flights.May2017-Apr2018.csv | grep CLT | awk -F',' '{print $24}' | grep -v ^$ | grep -vc 0.00 >> CLT.txt
+#answer: 2
+#again, exporting our info into our main chart; changing the line output into table format and passing that into the chart
+cat CLT.txt | paste -sd "," | column -s ',' -t -o $'\t\t' >> Q2_table.txt
+
+
+
+#Doing the same steps again for the final destination: MIA
+
+echo "   MIA" > MIA.txt
+awk -F',' '$3~/GNV/' flights.May2017-Apr2018.csv | grep -c MIA >> MIA.txt
+#answer: 205
+awk -F',' '$3~/GNV/' flights.May2017-Apr2018.csv | grep MIA | awk -F',' '{print $13, $16}' | grep -c 1.00 >> MIA.txt
+#answer:36 
+awk -F',' '$3~/GNV/' flights.May2017-Apr2018.csv | grep MIA | awk -F',' '{print $24}' | grep -v ^$ | grep -vc 0.00  >> MIA.txt
+#answer: 0
+cat MIA.txt | paste -sd "," | column -s ',' -t -o $'\t\t' >> Q2_table.txt
+
+cat Q2_chart.txt
+
+#we can now view our chart; the last column does not allign perfectly but that's ok, the large text file didnt allign perfectly either
+
+
+
+
+
