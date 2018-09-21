@@ -15,23 +15,23 @@ echo "GNV to:,Total flights,Total flights delayed(>15min),Total flights delayed 
 
 ##2.Generate the 2nd row of the table
 echo "   ATL" > ./buffer/Q2-ATL.txt    ###1st column, 2nd row, white spaces are used to place the text appropriately in the table
-grep Gainesville flights.May2017-Apr2018.csv | grep -c ATL >> ./buffer/Q2-ATL.txt    ###count GNV-ATL flights
-grep Gainesville flights.May2017-Apr2018.csv | grep ATL | cut -d "," -f 13,16 | grep -c 1.00 >> ./buffer/Q2-ATL.txt    ###count >15min delayed flights
-grep Gainesville flights.May2017-Apr2018.csv | grep ATL | cut -d "," -f 24 | grep -v ^$ | grep -vc 0.00 >> ./buffer/Q2-ATL.txt    ###count weather delayed flights
+grep Gainesville flights.May2017-Apr2018.csv | grep -c '"FL","ATL"' >> ./buffer/Q2-ATL.txt    ###count GNV-ATL flights
+grep Gainesville flights.May2017-Apr2018.csv | grep '"FL","ATL"' | cut -d "," -f 13,16 | grep -c 1.00 >> ./buffer/Q2-ATL.txt    ###count >15min delayed flights
+grep Gainesville flights.May2017-Apr2018.csv | grep '"FL","ATL"' | cut -d "," -f 24 | grep -v ^$ | grep -vc 0.00 >> ./buffer/Q2-ATL.txt    ###count weather delayed flights
 cat ./buffer/Q2-ATL.txt | paste -sd "," | column -s ',' -t -o $'\t\t' >> Q2-table.txt    ###change the multi-line output into the table format
 
 ##3.Generate the 3rd row of the table
 echo "   CLT" > ./buffer/Q2-CLT.txt    ###1st column, 3rd row
-grep Gainesville flights.May2017-Apr2018.csv | grep -c CLT >> ./buffer/Q2-CLT.txt    ###count GNV-CLT flights
-grep Gainesville flights.May2017-Apr2018.csv | grep CLT | cut -d "," -f 13,16 | grep -c 1.00 >> ./buffer/Q2-CLT.txt    ###count >15min delayed flights
-grep Gainesville flights.May2017-Apr2018.csv | grep CLT | cut -d "," -f 24 | grep -v ^$ | grep -vc 0.00 >> ./buffer/Q2-CLT.txt    ###count weather delayed flights
+grep Gainesville flights.May2017-Apr2018.csv | grep -c '"FL","CLT"' >> ./buffer/Q2-CLT.txt    ###count GNV-CLT flights
+grep Gainesville flights.May2017-Apr2018.csv | grep '"FL","CLT"' | cut -d "," -f 13,16 | grep -c 1.00 >> ./buffer/Q2-CLT.txt    ###count >15min delayed flights
+grep Gainesville flights.May2017-Apr2018.csv | grep '"FL","CLT"' | cut -d "," -f 24 | grep -v ^$ | grep -vc 0.00 >> ./buffer/Q2-CLT.txt    ###count weather delayed flights
 cat ./buffer/Q2-CLT.txt | paste -sd "," | column -s ',' -t -o $'\t\t' >> Q2-table.txt    ###change the multi-line output into the table format
 
 ##4.Generate the 4th row of the table
 echo "   MIA" > ./buffer/Q2-MIA.txt    ###1st column, 4th row
-grep Gainesville flights.May2017-Apr2018.csv | grep -c MIA >> ./buffer/Q2-MIA.txt    ###count GNV-MIA flights
-grep Gainesville flights.May2017-Apr2018.csv | grep MIA | cut -d "," -f 13,16 | grep -c 1.00 >> ./buffer/Q2-MIA.txt    ###count >15min delayed flights
-grep Gainesville flights.May2017-Apr2018.csv | grep MIA | cut -d "," -f 24 | grep -v ^$ | grep -vc 0.00 >> ./buffer/Q2-MIA.txt    ###count weather delayed flights
+grep Gainesville flights.May2017-Apr2018.csv | grep -c '"FL","MIA"' >> ./buffer/Q2-MIA.txt    ###count GNV-MIA flights
+grep Gainesville flights.May2017-Apr2018.csv | grep '"FL","MIA"' | cut -d "," -f 13,16 | grep -c 1.00 >> ./buffer/Q2-MIA.txt    ###count >15min delayed flights
+grep Gainesville flights.May2017-Apr2018.csv | grep '"FL","MIA"' | cut -d "," -f 24 | grep -v ^$ | grep -vc 0.00 >> ./buffer/Q2-MIA.txt    ###count weather delayed flights
 cat ./buffer/Q2-MIA.txt | paste -sd "," | column -s ',' -t -o $'\t\t' >> Q2-table.txt    ###change the multi-line output into table format
 
 cat Q2-table.txt
