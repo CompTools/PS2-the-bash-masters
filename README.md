@@ -42,19 +42,27 @@ For questions, 1, 3 and 4, I will mostly be looking for the right answer.
 
 **Your score on 1,3,4 (I'll fill this in when I grade):**
 
+**1. 2 pts.**
+
+**3. 3 pts **
+
+**4. 2 pts **
+
 
 For question 2, you will receive points for:
 
 Rubric item | Points | Your score
 ------------|--------|-----------
-Using github| 1 point |
-Having at least one commit from each member of the team | 2 points |
-Using meaningful commit messages | 2 points |
-Using functions correctly | 2 points |
-Using comments in code | 2 points
-Using spacing to make code readable | 2 points |
-Getting the correct answer | 2 points |
+Using github| 1 point |  **2**
+Having at least one commit from each member of the team | 2 points | **2**
+Using meaningful commit messages | 2 points | **2**
+Using functions correctly | 2 points | **0, I don't see the code for the answers to 3&4, so I can't tell if you used functions or not.**
+Using comments in code | 2 points | **2**
+Using spacing to make code readable | 2 points | **2**
+Getting the correct answer | 2 points | **2**
 
 **Extra credit:**
+5pts
 
 **Total points:**
+23/20
