@@ -56,7 +56,7 @@ Rubric item | Points | Your score
 Using github| 1 point |  **2**
 Having at least one commit from each member of the team | 2 points | **2**
 Using meaningful commit messages | 2 points | **2**
-Using functions correctly | 2 points | **0, I don't see the code for the answers to 3&4, so I can't tell if you used functions or not.**
+Using functions correctly | 2 points | **~~0, I don't see the code for the answers to 3&4, so I can't tell if you used functions or not.~~ Thanks for pointing me to the code. 2pts**
 Using comments in code | 2 points | **2**
 Using spacing to make code readable | 2 points | **2**
 Getting the correct answer | 2 points | **2**
@@ -65,4 +65,4 @@ Getting the correct answer | 2 points | **2**
 5pts
 
 **Total points:**
-23/20
+~~23/20~~ 25/20
